@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آموزش برنامه‌نویسی پایتون | PythonFarsi</title>
+    <meta name="description" content="یادگیری پایتون به سادگی و با بهترین دوره‌های آموزشی آنلاین.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* setting Reset  */
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #f1c40f;
+            --text-color: #333;
+            --background-color: #f9f9f9;
+            --white: #fff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            direction: rtl;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* header */
+        header {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--white);
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        header nav ul li a {
+            color: var(--white);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        header nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        header .btn-login {
+            background: var(--accent-color);
+            color: var(--secondary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        header .btn-login:hover {
+            background: #e67e22;
+        }
+
+        /* hero */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .hero-text {
+            max-width: 50%;
+        }
+
+        .hero-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1.5s ease;
+        }
+
+        .hero-text .btn-primary {
+            background: var(--accent-color);
+            color: var(--secondary-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: var(--transition);
+            animation: fadeInUp 2s ease;
+        }
+
+        .hero-text .btn-primary:hover {
+            background: #e67e22;
+        }
+
+        /* courses */
+        .courses {
+            padding: 4rem 0;
+            background: var(--background-color);
+        }
+
+        .courses h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .course-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .course-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .course-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .course-card p {
+            margin-bottom: 1.5rem;
+        }
+
+        .course-card .btn-secondary {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .course-card .btn-secondary:hover {
+            background: #2980b9;
+        }
+
+        /* about */
+        .about {
+            padding: 4rem 0;
+            background: var(--white);
+        }
+
+        .about h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .about p {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            animation: fadeInUp 1.5s ease;
+        }
+
+        /* social */
+        .about .social-links {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .about .social-links p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .about .social-links a {
+            color: var(--primary-color);
+            margin: 0 0.75rem;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .about .social-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        /* footer */
+        footer {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* button */
+        .btn-special {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+
+        .btn-special:hover {
+            background: #2980b9;
+            animation: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <div class="container">
+            <h1 class="logo">PythonFarsi</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">خانه</a></li>
+                    <li><a href="#courses">دوره‌ها</a></li>
+                    <li><a href="#about">درباره ما</a></li>
+                </ul>
+            </nav>
+            <a href="#login" class="btn-login">ورود / ثبت‌نام</a>
+        </div>
+    </header>
+
+    <!-- hero-->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-text">
+                <h2>یادگیری پایتون را با ما شروع کنید!</h2>
+                <p>با دوره‌های آموزشی ما، پایتون را به سادگی و با لذت یاد بگیرید.</p>
+                <a href="#courses" class="btn-primary btn-special">شروع کنید</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- courses -->
+    <section id="courses" class="courses">
+        <div class="container">
+            <h2>دوره‌های آموزشی</h2>
+            <div class="course-grid">
+                <div class="course-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>پایتون مقدماتی</h3>
+                    <p>یادگیری اصول اولیه پایتون برای شروع برنامه‌نویسی.</p>
+                    <a href="page1.html" class="btn-secondary">کلیک کنید</a>
+                </div>
+                <div class="course-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>پایتون پیشرفته</h3>
+                    <p>آموزش مفاهیم پیشرفته‌تر مانند شی‌گرایی و کار با پایگاه داده.</p>
+                    <a href="page2.html" class="btn-secondary">کلیک کنید</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- about -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>درباره ما</h2>
+            <p>درحال نوشتن</p>
+            <div class="social-links">
+                <p>ما را دنبال کنید:</p>
+                <a href="#" target="_blank"><i class="fab fa-telegram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+        <div class="container">
+            <p>2025 PythonFarsi &copy;</p>
+        </div>
+    </footer>
+
+    <!-- scripts -->
+    <script>
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
