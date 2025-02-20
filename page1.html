@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آموزش پایتون مقدماتی | PythonFarsi</title>
+    <meta name="description" content="یادگیری پایتون به سادگی و با بهترین دوره‌های آموزشی آنلاین.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* setting reset */
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #f1c40f;
+            --text-color: #333;
+            --background-color: #f9f9f9;
+            --white: #fff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            direction: rtl;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* header */
+        header {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--white);
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        header nav ul li a {
+            color: var(--white);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        header nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        header .btn-login {
+            background: var(--accent-color);
+            color: var(--secondary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        header .btn-login:hover {
+            background: #e67e22;
+        }
+
+        /* hero */
+        .main-content {
+            padding: 4rem 0;
+        }
+
+        /* accordion */
+        .accordion {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid var(--background-color);
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .accordion-header:hover {
+            background: var(--background-color);
+        }
+
+        .accordion-header h3 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .accordion-header i {
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .accordion-header.active i {
+            transform: rotate(90deg);
+        }
+
+        .accordion-content {
+            padding: 0 1rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-content p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .accordion-content pre {
+            background: var(--background-color);
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+        }
+
+        .accordion-content code {
+            font-family: 'Courier New', Courier, monospace;
+            color: var(--secondary-color);
+        }
+
+        /* footer */
+        footer {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        footer .social-links {
+            margin-top: 1rem;
+        }
+
+        footer .social-links a {
+            color: var(--white);
+            margin: 0 0.5rem;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        footer .social-links a:hover {
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <div class="container">
+            <h1 class="logo">PythonFarsi</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">خانه</a></li>
+                    <li><a href="#courses.html">دوره‌ها</a></li>
+                    <li><a href="#about.html">درباره ما</a></li>
+                </ul>
+            </nav>
+            <a href="#login" class="btn-login">ورود / ثبت‌نام</a>
+        </div>
+    </header>
+
+    <!-- hero-->
+    <div class="main-content">
+        <div class="container">
+            <h2>سرفصل‌های دوره پایتون مقدماتی</h2>
+<!------------------------------------------------------ intro python ------------------------------------------------------>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>معرفی پایتون</h3>
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <h3>پایتون:</h3>
+                        <p>پایتون یک زبان برنامه‌نویسی محبوب و همکاره است که گیدو ون روسوم در ۱۹۹۱ آن را توسعه داد.</p>
+                        <h3>چند ویژگی اصلی پایتون:</h3>
+                        <ul>
+                            <li>برای برنامه‌های وب، اتوماسیون، کار با پایگاه داده و داده‌های بزرگ کاربرد دارد.</li>
+                            <li>سینتکس ساده و خوانا دارد.</li>
+                            <li>از برنامه‌نویسی رویه‌ای، شی‌گرا و تابعی پشتیبانی می‌کند.</li>
+                        </ul>
+                    </div>
+                </div>
+<!------------------------------------------------------ Python Quickstart ------------------------------------------------------>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3>شروع پایتون</h3>
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="accordion-content">
+                    <h3>نصب پایتون:</h3>
+                    <p>برای بررسی اینکه پایتون روی سیستم شما نصب است، از دستورات زیر در خط فرمان استفاده کنید:</p>
+                    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+<pre dir="ltr"><code class="language-python">import sys
+print(sys.version)
+</code></pre>
+                    <p>اگر پایتون نصب نیست، می‌توانید آخرین نسخه را از سایت رسمی <a href="https://www.python.org/">python.org</a> دانلود کنید.</p>
+                    <h3>بررسی نسخه پایتون:</h3>
+                    <p>برای بررسی نسخه پایتون در محیط اجرا:</p>
+                    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+                    <pre dir="ltr"><code class="language-python">
+print("Hello, World!")
+                    </code></pre>
+                    <h3>نوشتن فایل پایتون: </h3>
+                    <p>پایتون یک زبان تفسیری است، به این معنی که شما فایل‌ پایتون را با پسوند`.py` را نوشته و سپس اجرا می‌کنید.</p>
+                    <p>مثال:</p>
+                    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+<pre dir="ltr"><code class="language-python">print("Hello, World!")
+</code></pre>
+                    <p>برای اجرا:</p>
+                    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+<pre dir="ltr"><code class="language-python">python helloworld.py
+</code></pre>
+                </div>
+            </div>
+<!------------------------------------------------------ کامنت ها ------------------------------------------------------>
+<div class="accordion">
+    <div class="accordion-item">
+        <div class="accordion-header">
+            <h3>کامنت ها</h3>
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="accordion-content">
+            <h3>کامنت ها:</h3>
+            <ul>
+                <li>از کامنت می توان برای توضیح کد پایتون استفاده کرد.</li>
+                <li>برای خوانایی بیشتر کد می توان از کامنت استفاده کرد.</li>
+                <li>از کامنت می توان برای جلوگیری از اجرا در هنگام تست کد استفاده کرد.
+                </li>            
+            </ul>
+            <h3>ایجاد یک کامنت:</h3>
+            <p>کامنت با # شروع می شود و پایتون آنها را نادیده می گیرد:</p>
+            <pre dir="ltr"><code class="language-python"># This is a comment
+print("Hello, World!")</code></pre>
+        </div>
+    </div>
+<!------------------------------------------------------ variable ------------------------------------------------------>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>متغیرها</h3>
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>متغیرها (variables) برای ذخیره داده‌ها استفاده می‌شوند.</p>
+                        <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+<pre dir="ltr"><code class="language-python">x = 10
+y = "Python"
+</code></pre>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+
+<h3>تعریف متغیرها در پایتون</h3>
+<p>متغیرها در پایتون به‌طور خودکار هنگام مقداردهی اولیه ایجاد می‌شوند.</p>
+<pre dir="ltr"><code class="language-python">x = 5
+y = "Hello"
+print(x)
+print(y)</code></pre>
+
+<h3>تغییر نوع داده‌ی متغیر</h3>
+<p>می‌توان نوع داده را با <strong>casting</strong> مشخص کرد:</p>
+<pre dir="ltr"><code class="language-python">x = str(3)  # تبدیل به رشته: '3'
+y = int(3)  # تبدیل به عدد صحیح: 3
+z = float(3)  # تبدیل به عدد اعشاری: 3.0</code></pre>
+
+<h3>نام‌گذاری متغیرها</h3>
+<h5><p>مجاز:</p></h5>
+<ul>
+<li>باید با حرف یا <code>_</code> شروع شوند.</li>
+<li>می‌توانند شامل اعداد، حروف و <code>_</code> باشند.</li>
+<p>مثال</p>
+<pre dir="ltr"><code class="language-python">myvar = "John"
+my_var = "John"
+_my_var = "John"
+myVar = "John"
+MYVAR = "John"
+myvar2 = "John"</code></pre>
+</ul>
+<h5><p>غیرمجاز:</p></h5>
+<ul>
+<li>شروع با عدد (مثل <code>1variable</code>).</li>
+<li>استفاده از کاراکترهای ویژه مثل <code>@, $, %</code>.</li>
+<p>مثال</p>
+<pre dir="ltr"><code class="language-python">2myvar = "John"
+my-var = "John"
+my var = "John"
+</code></pre>
+</ul>
+
+<h3>مقداردهی چندگانه</h3>
+<p>پایتون به شما این امکان را می دهد که در یک خط به چندین متغیر مقادیر اختصاص دهید:</p>
+<pre dir="ltr"><code class="language-python">x, y, z = "Apple", "Banana", "Cherry"
+print(x)
+print(y)
+print(z)</code></pre>
+<h3>مقادیر مشترک</h3>
+<p>و می توانید یک مقدار را به چندین متغیر در یک خط اختصاص دهید:</p>
+<pre dir="ltr"><code class="language-python">x = y = z = "Orange"
+print(x, y, z)  # Orange Orange Orange</code></pre>
+
+<h3>حساسیت به حروف بزرگ و کوچک</h3>
+<p>متغیرها در پایتون به حروف بزرگ و کوچک حساس هستند.</p>
+<pre dir="ltr"><code class="language-python">a = 4
+A = "Sally"
+a و A دو متغیر متفاوت هستند</code></pre>
+
+<h3>دریافت نوع متغیر</h3>
+<p>می‌توانید نوع متغیر را با تابع <code>type()</code> مشخص کنید.</p>
+<pre dir="ltr"><code class="language-python">x = 5
+y = "John"
+print(type(x))
+print(type(y))</code></pre>
+
+<h3>خروجی متغیرها</h3>
+<p>تابع <code>print()</code> برای نمایش مقادیر متغیرها استفاده می‌شود.</p>
+<pre dir="ltr"><code class="language-python">x = "Python is awesome"
+print(x)</code></pre>
+<p>می‌توان چند متغیر را با جداکننده کما چاپ کرد:</p>
+<pre dir="ltr"><code class="language-python">x = "Python"
+y = "is"
+z = "awesome"
+print(x, y, z)</code></pre>
+<p>یا با اپراتور <code>+</code> متغیرها را به هم متصل کرد:</p>
+<pre dir="ltr"><code class="language-python">x = "Python "
+y = "is "
+z = "awesome"
+print(x + y + z)</code></pre>
+<p>برای عددها، اپراتور <code>+</code> به عنوان عملگر ریاضی عمل می‌کند:</p>
+<pre dir="ltr"><code class="language-python">x = 5
+y = 10
+print(x + y)</code></pre>
+                </div>
+
+<!------------------------------------------------------ Data types ------------------------------------------------------>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>انواع داده ها</h3>
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <h3>انواع داده های داخلی</h3>
+                        <p>در برنامه نویسی، نوع داده یک مفهوم مهم است.</p>
+                        <p>متغیرها می توانند داده های مختلف را ذخیره کنند و انواع مختلف می توانند کارهای متفاوتی انجام دهند.</p>
+                        <p>پایتون انواع داده های زیر را به طور پیش فرض در این دسته بندی ها داخلی دارد:</p>
+                        <strong><p>نوع متن: str </p></strong>
+                        <strong><p>نوع عددی: int, float, complex</p></strong>
+                        <strong><p>انواع توالی: list, tuple, range </p></strong>
+                        <strong><p>نوع نقشه برداری: dict </p></strong>
+                        <strong><p>انواع مجموعه: set, frozenset </p></strong>
+                        <strong><p>نوع بولی: bool </p></strong>
+                        <strong><p>نوع باینری: bytes, bytearray, memoryview </p></strong>
+                        <strong><p>نوع هیچ: none</p></strong>
+
+                        <pre dir="ltr"><code class="language-python">a = 5
+b = 3
+print(a + b)  # خروجی: 8</code></pre>
+                    <h3>دریافت نوع داده:</h3>
+                    <p>با استفاده از تابع type() می توانید نوع داده هر شی را بدست آورید:</p>
+                    <pre dir="ltr"><code class="language-python">x = 5
+print(type(x))
+# خروجی int</code></pre>
+                    </div>
+                </div>
+<!------------------------------------------------------ numbers ------------------------------------------------------>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>اعداد</h3>
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="accordion-content">
+                    <h3>اعداد پایتون</h3>
+                    <p>سه نوع عددی در پایتون وجود دارد:</p>
+                    <strong><p>int, float, complex</p></strong>
+                    <p>متغیرهای انواع عددی زمانی ایجاد می شوند که یک مقدار به آنها اختصاص دهید:</p>
+                    <pre dir="ltr"><code class="language-python">x = 12     # int
+y = 220.8  # float
+z = 1j     # complex</code></pre>
+                    </div>
+                </div>
+<!------------------------------------------------------ Type Conversion ------------------------------------------------------>
+<div class="accordion-item">
+    <div class="accordion-header">
+        <h3>تبدیل نوع داده ها</h3>
+        <i class="fas fa-chevron-left"></i>
+    </div>
+    <div class="accordion-content">
+    <h3>تبدل نوع:</h3>
+    <p>می توانید با متدهای int()، float() و complex() از یک نوع به نوع دیگر تبدیل کنید:</p>
+    <strong><p>int, float, complex</p></strong>
+    <pre dir="ltr"><code class="language-python">x = 1    # int
+y = 2.8  # float
+z = 1j   # complex
+
+#convert from int to float:
+a = float(x)
+
+#convert from float to int:
+b = int(y)
+
+#convert from int to complex:
+c = complex(x)
+
+print(a)
+print(b)
+print(c)
+
+print(type(a))
+print(type(b))
+print(type(c))</code></pre>
+    </div>
+</div>
+<!------------------------------------------------------ string ------------------------------------------------------>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>رشته ها</h3>
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>رشته‌ها - strings در پایتون توسط یک علامت نقل قول یا دو علامت نقل قول احاطه شده‌اند.</p>
+                        <p>"Hello" همان 'hello' است</p>
+                        <pre dir="ltr"><code class="language-python">print("Hello")
+print('Hello')</code></pre>
+                        <h3>نقل قول در داخل نقل قول:</h3>
+                        <p>شما می توانید از نقل قول ها در داخل یک رشته استفاده کنید، به شرطی که با نقل قول های اطراف رشته مطابقت نداشته باشند:</p>
+                        <pre dir="ltr"><code class="language-python">print("It's alright")
+print("He is called 'Johnny'")
+print('He is called "Johnny"')</code></pre>
+                        <h3>رشته های چند خطی:</h3>
+                        <p>با استفاده از سه نقل قول می توانید یک رشته چند خطی را به یک متغیر اختصاص دهید:</p>
+                        <pre dir="ltr"><code class="language-python">a = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua."""
+print(a)</code></pre>
+                        <h3>طول رشته:</h3>
+                        <p>برای بدست آوردن طول یک رشته، از تابع len() استفاده کنید.</p>
+                        <pre dir="ltr"><code class="language-python">a = "Hello, World!"
+print(len(a))</code></pre>
+                        <h3>برش دادن:</h3>
+                        <p>با استفاده از نحو slice می توانید طیف وسیعی از کاراکترها را برگردانید.</p>
+                        <pre dir="ltr"><code class="language-python">b = "Hello, World!"
+print(b[2:5])</code></pre>
+                        <h3>الحاق رشته:</h3>
+                        <p>برای به هم پیوستن یا ترکیب دو رشته می توانید از عملگر + استفاده کنید.</p>
+                        <pre dir="ltr"><code class="language-python">a = "Hello"
+b = "World"
+c = a + b
+print(c)</code></pre>
+                        <h3>قالب رشته F-string</h3>
+                        <p>F-String در پایتون 3.6 معرفی شد و اکنون روش ترجیحی برای قالب بندی رشته ها است.</p>
+                        <p>برای تعیین یک رشته به‌عنوان یک رشته f، به سادگی یک f را در مقابل رشته واقعی قرار دهید و براکت‌های {} را به‌عنوان مکان‌نما برای متغیرها و سایر عملیات اضافه کنید.</p>
+                        <pre dir="ltr"><code class="language-python">age = 36
+txt = f"My name is John, I am {age}"
+print(txt)</code></pre>
+                        <h3>متدها - Methods</h3>
+                        <p>رشته‌ها در پایتون دارای متدهای داخلی زیادی هستند که می‌توانند برای تغییر یا بررسی رشته‌ها استفاده شوند.</p>
+
+<h3> تبدیل به حروف بزرگ و کوچک </h3>
+<p>برای تبدیل تمام حروف یک رشته به حروف بزرگ یا کوچک، از متدهای زیر استفاده می‌شود:</p>
+<pre dir='ltr'><code class='language-python'>txt = "Hello, World!"
+print(txt.upper())  # تبدیل به حروف بزرگ
+print(txt.lower())  # تبدیل به حروف کوچک
+</code></pre>
+
+<h3> حذف فاصله‌ها </h3>
+<p>برای حذف فاصله‌های اضافی از ابتدا و انتهای یک رشته، از متد <code>strip()</code> استفاده می‌شود:</p>
+<pre dir='ltr'><code class='language-python'>txt = "   Hello, World!   "
+print(txt.strip())  # حذف فاصله‌های اضافی
+</code></pre>
+
+<h3> جایگزینی کاراکترها </h3>
+<p>متد <code>replace()</code> برای جایگزینی بخش خاصی از یک رشته استفاده می‌شود:</p>
+<pre dir='ltr'><code class='language-python'>txt = "Hello, World!"
+print(txt.replace("H", "J"))  # جایگزینی H با J
+</code></pre>
+
+<h3> تقسیم رشته‌ها </h3>
+<p>متد <code>split()</code> برای تقسیم یک رشته بر اساس یک جداکننده مشخص استفاده می‌شود:</p>
+<pre dir='ltr'><code class='language-python'>txt = "Hello, World!"
+print(txt.split(","))  # تقسیم رشته بر اساس کاما
+</code></pre>
+
+<h3> بررسی وجود زیررشته </h3>
+<p>برای بررسی اینکه آیا یک زیررشته خاص درون یک رشته قرار دارد یا خیر، از عملگر <code>in</code> استفاده می‌شود:</p>
+<pre dir='ltr'><code class='language-python'>txt = "Hello, World!"
+print("World" in txt)  # بررسی وجود "World" در رشته
+</code></pre>
+
+<h3> بررسی عدم وجود زیررشته </h3>
+<p>برای بررسی اینکه آیا یک زیررشته درون رشته موجود نیست، از عملگر <code>not in</code> استفاده می‌شود:</p>
+<pre dir='ltr'><code class='language-python'>txt = "Hello, World"
+print("Python" not in txt)
+# بررسی عدم وجود "Python" در رشته
+</code></pre>
+                    </div>
+                </div>
+<!------------------------------------------------------ ------------------------------------------------------>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>حلقه‌ها و شرط‌ها</h3>
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>حلقه‌ها برای تکرار و شرط‌ها برای تصمیم‌گیری استفاده می‌شوند.</p>
+                        <pre><code>for i in range(5):
+                          print(i)</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!------------------------------------------------------ ------------------------------------------------------>
+
+    <footer>
+        <div class="container">
+            <p>2025 PythonFarsi &copy;</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- script -->
+    <script>
+        // accordion
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const icon = header.querySelector('i');
+
+                // بستن سایر آکاردئون‌ها
+                document.querySelectorAll('.accordion-content').forEach(item => {
+                    if (item !== content) {
+                        item.style.maxHeight = null;
+                        item.previousElementSibling.classList.remove('active');
+                    }
+                });
+
+                // باز یا بسته کردن آکاردئون فعلی
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    header.classList.remove('active');
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    header.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
