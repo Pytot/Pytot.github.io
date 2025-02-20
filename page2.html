@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آموزش پایتون مقدماتی | PythonFarsi</title>
+    <meta name="description" content="یادگیری پایتون به سادگی و با بهترین دوره‌های آموزشی آنلاین.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* setting reset */
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #f1c40f;
+            --text-color: #333;
+            --background-color: #f9f9f9;
+            --white: #fff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            direction: rtl;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* header */
+        header {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--white);
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        header nav ul li a {
+            color: var(--white);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        header nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        header .btn-login {
+            background: var(--accent-color);
+            color: var(--secondary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        header .btn-login:hover {
+            background: #e67e22;
+        }
+
+        /* hero */
+        .main-content {
+            padding: 4rem 0;
+        }
+
+        /* accordion */
+        .accordion {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid var(--background-color);
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .accordion-header:hover {
+            background: var(--background-color);
+        }
+
+        .accordion-header h3 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .accordion-header i {
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .accordion-header.active i {
+            transform: rotate(90deg);
+        }
+
+        .accordion-content {
+            padding: 0 1rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-content p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .accordion-content pre {
+            background: var(--background-color);
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+        }
+
+        .accordion-content code {
+            font-family: 'Courier New', Courier, monospace;
+            color: var(--secondary-color);
+        }
+
+        /* footer */
+        footer {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        footer .social-links {
+            margin-top: 1rem;
+        }
+
+        footer .social-links a {
+            color: var(--white);
+            margin: 0 0.5rem;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        footer .social-links a:hover {
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <div class="container">
+            <h1 class="logo">PythonLearn</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">خانه</a></li>
+                    <li><a href="#courses.html">دوره‌ها</a></li>
+                    <li><a href="#about.html">درباره ما</a></li>
+                </ul>
+            </nav>
+            <a href="#login" class="btn-login">ورود / ثبت‌نام</a>
+        </div>
+    </header>
+
+    <!-- hero-->
+    <div class="main-content">
+        <div class="container">
+            <h2>سرفصل‌های دوره پایتون مقدماتی</h2>
+            <!-- accordion -->
+            <div class="accordion">
+                <!-- intro python -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>معرفی پایتون</h3>
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>پایتون یک زبان برنامه‌نویسی سطح بالا و همه‌منظوره است که برای توسعه وب، تحلیل داده‌ها، هوش مصنوعی و موارد دیگر استفاده می‌شود.</p>
+                        <pre><code>print("Hello, World!")</code></pre>
+                    </div>
+                </div>
+
+                <!-- variable and data types -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>متغیرها و انواع داده‌ها</h3>
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>در پایتون، متغیرها برای ذخیره داده‌ها استفاده می‌شوند. انواع داده‌ها شامل اعداد، رشته‌ها، لیست‌ها و غیره هستند.</p>
+                        <pre><code>x = 10
+y = "Python"</code></pre>
+                    </div>
+                </div>
+
+                <!-- operators -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>عملگرها</h3>
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>عملگرها برای انجام عملیات‌های ریاضی، مقایسه‌ای و منطقی استفاده می‌شوند.</p>
+                        <pre><code>a = 5
+b = 3
+print(a + b)  # خروجی: 8</code></pre>
+                    </div>
+                </div>
+
+                <!-- lists -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>لیست‌ها</h3>
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>لیست‌ها برای ذخیره مجموعه‌ای از آیتم‌ها استفاده می‌شوند و قابل تغییر هستند.</p>
+                        <pre><code>fruits = ["apple", "banana", "cherry"]
+print(fruits[0])  # خروجی: apple</code></pre>
+                    </div>
+                </div>
+
+                <!-- if and loops-->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>حلقه‌ها و شرط‌ها</h3>
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>حلقه‌ها برای تکرار و شرط‌ها برای تصمیم‌گیری استفاده می‌شوند.</p>
+                        <pre><code>for i in range(5):
+    print(i)</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer>
+        <div class="container">
+            <p>2025 PythonLearn &copy;</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- script -->
+    <script>
+        // accordion
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const icon = header.querySelector('i');
+
+                // بستن سایر آکاردئون‌ها
+                document.querySelectorAll('.accordion-content').forEach(item => {
+                    if (item !== content) {
+                        item.style.maxHeight = null;
+                        item.previousElementSibling.classList.remove('active');
+                    }
+                });
+
+                // باز یا بسته کردن آکاردئون فعلی
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    header.classList.remove('active');
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    header.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
